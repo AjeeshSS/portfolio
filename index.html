@@ -439,24 +439,5 @@
       <!----------js files----------> 
       <script src="service.js"></script>       
       <script src="service1.js"></script>  
-      <script>
-         $("#submit-form").submit((e)=>{
-             e.preventDefault()
-             $.ajax({
-                 url:"https://script.google.com/macros/s/AKfycbzylP30YttgON35bYzIpBmWQvCYvsb6mi01p7aTn_9SzDbKe61TfhVo778yqxF00IAO4A/exec",
-                 data:$("#submit-form").serialize(),
-                 method:"post",
-                 success:function (response){
-                     alert("Form submitted successfully")
-                     window.location.reload()
-                     //window.location.href="https://google.com"
-                 },
-                 error:function (err){
-                     alert("Something Error")
-     
-                 }
-             })
-         })
-     </script>
     </body>
 </html>

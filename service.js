@@ -28,25 +28,49 @@ $(document).ready(function(){
     }); 
     //--------------validation----------------------------
     $('#sub').click(function(){  
-        //email validation
-        var mail=$("#email").val()
-        var chtr = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if(chtr.test(mail)){
-            alert("valid emailId")
-            // return true
-        }
-        else{
-            alert("invalid emailid")
-            // return false
-        }
         // name validation
         var n=$("#text").val()
         var regName = /^[a-zA-Z]+$/;
         if(!regName.test(n)){
             alert('Invalid name given.');
-        }else{
+         }else{
             alert('Valid name given.');
+            var ctr1=1;
         }
+        //email validation
+        var mail=$("#email").val()
+        var chtr = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(chtr.test(mail)){
+            alert("valid emailId")
+            var ctr=1;
+        }
+        else{
+            alert("invalid emailid")
+            // return false
+        }
+
+        if (ctr==1 && ctr1==1)
+        {
+            $("#submit-form").submit((e)=>{
+                e.preventDefault()
+                $.ajax({
+                    url:"https://script.google.com/macros/s/AKfycbzylP30YttgON35bYzIpBmWQvCYvsb6mi01p7aTn_9SzDbKe61TfhVo778yqxF00IAO4A/exec",
+                    data:$("#submit-form").serialize(),
+                    method:"post",
+                    success:function (response){
+                        alert("Form submitted successfully")
+                        window.location.reload()
+                        //window.location.href="https://google.com"
+                    },
+                    error:function (err){
+                        alert("Something Error")
+        
+                    }
+                })
+            })
+        }
+        else {alert("Something Error")}
+
 
     })
 })
